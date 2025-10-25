@@ -164,4 +164,290 @@ All colors MUST be HSL.
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
+
+  /* Custom Cursor Styles */
+  .custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid hsl(258, 90%, 66%);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom-cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid hsl(258, 90%, 66% / 0.3);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom-cursor-hover {
+    width: 60px;
+    height: 60px;
+    background: hsl(258, 90%, 66% / 0.1);
+  }
+
+  /* Shimmer Effect for Personality Cards */
+  .shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+  }
+
+  .personality-card:hover .shimmer-effect::before {
+    left: 100%;
+  }
+
+  /* Ripple Effect */
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: hsl(258, 90%, 66% / 0.6);
+    width: 100px;
+    height: 100px;
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+  }
+
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* Shake Animation */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease;
+  }
+
+  /* Loading Dots Animation */
+  .loader-dots {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+
+  .loader-dots div {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: hsl(258, 90%, 66%);
+    animation: loader-dots-animation 1.2s linear infinite;
+  }
+
+  .loader-dots div:nth-child(1) {
+    animation-delay: 0s;
+    top: 37px;
+    left: 66px;
+  }
+
+  .loader-dots div:nth-child(2) {
+    animation-delay: -0.4s;
+    top: 22px;
+    left: 62px;
+  }
+
+  .loader-dots div:nth-child(3) {
+    animation-delay: -0.8s;
+    top: 11px;
+    left: 52px;
+  }
+
+  @keyframes loader-dots-animation {
+    0%, 20%, 80%, 100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% { 
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+  }
+
+  /* Hover class for cursor interaction */
+  .cursor-hover {
+    cursor: pointer;
+  }
+
+  /* ============ LOADING SCREEN ============ */
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsl(265, 87%, 5%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  .loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Animated Logo/Text */
+  .loading-logo {
+    font-size: 4em;
+    font-weight: bold;
+    background: linear-gradient(135deg, hsl(258, 90%, 66%), hsl(188, 96%, 43%), hsl(330, 81%, 60%));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite, fadeInScale 0.8s ease;
+    margin-bottom: 40px;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Circular Progress Loader */
+  .circular-loader {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .circular-loader svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+  }
+
+  .circular-loader circle {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+
+  .circular-loader .bg-circle {
+    stroke: hsl(258, 90%, 66% / 0.1);
+  }
+
+  .circular-loader .progress-circle {
+    stroke: url(#gradient);
+    stroke-dasharray: 339;
+    stroke-dashoffset: 339;
+    transition: stroke-dashoffset 0.05s linear;
+  }
+
+  /* Loading Text */
+  .loading-text {
+    font-size: 1.2em;
+    color: hsl(258, 90%, 66%);
+    letter-spacing: 2px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Progress Bar */
+  .progress-container {
+    width: 300px;
+    height: 4px;
+    background: hsl(258, 90%, 66% / 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, hsl(258, 90%, 66%), hsl(188, 96%, 43%));
+    width: 0%;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 20px hsl(258, 90%, 66% / 0.6);
+  }
+
+  /* Percentage Counter */
+  .percentage {
+    font-size: 1.5em;
+    color: hsl(258, 90%, 66%);
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  /* ============ EASTER EGG ANIMATIONS ============ */
+  
+  /* Rainbow Background for Dance Mode */
+  @keyframes rainbowBg {
+    0% { background: #ff0000; }
+    16% { background: #ff7f00; }
+    33% { background: #ffff00; }
+    50% { background: #00ff00; }
+    66% { background: #0000ff; }
+    83% { background: #8b00ff; }
+    100% { background: #ff0000; }
+  }
+
+  /* Dance Animation */
+  @keyframes dance {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-5deg) scale(1.05); }
+    75% { transform: rotate(5deg) scale(0.95); }
+  }
+
+  /* Shake Animation */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+  }
+
+  /* Slow Spin for Disco Ball */
+  @keyframes spin-slow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 4s linear infinite;
+  }
 }
