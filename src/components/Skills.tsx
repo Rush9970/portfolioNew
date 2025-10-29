@@ -144,30 +144,29 @@ const Skills = () => {
     { name: "GenAI/LLMs", level: 5, category: "AI/ML" },
     { name: "Pandas", level: 5, category: "AI/ML" },
     { name: "NumPy", level: 5, category: "AI/ML" },
-    { name: "RAG Systems", level: 5, category: "AI/ML" },
+    
     { name: "React.js", level: 5, category: "Frontend" },
     { name: "TypeScript", level: 4, category: "Frontend" },
-    { name: "Tailwind CSS", level: 5, category: "Frontend" },
+    
     { name: "JavaScript", level: 5, category: "Frontend" },
     { name: "Figma", level: 4, category: "Frontend" },
     { name: "Node.js", level: 4, category: "Backend" },
-    { name: "Express.js", level: 4, category: "Backend" },
+    
     { name: "Spring Boot", level: 3, category: "Backend" },
     { name: "FastAPI", level: 5, category: "Backend" },
-    { name: "Java", level: 3, category: "Backend" },
+    
     { name: "Python", level: 5, category: "Backend" },
     { name: "PostgreSQL", level: 4, category: "Database" },
     { name: "MongoDB", level: 4, category: "Database" },
     { name: "ChromaDB", level: 4, category: "Database" },
     { name: "Python", level: 5, category: "Languages" },
-    { name: "JavaScript", level: 5, category: "Languages" },
-    { name: "TypeScript", level: 4, category: "Languages" },
+    
    
     { name: "C++", level: 4, category: "Languages" },
     { name: "SQL", level: 4, category: "Languages" },
     { name: "Docker", level: 4, category: "Cloud & Tools" },
     { name: "Git", level: 5, category: "Cloud & Tools" },
-    { name: "Postman", level: 5, category: "Cloud & Tools" },
+    
     { name: "IntelliJ IDEA", level: 4, category: "Cloud & Tools" },
   ];
 

@@ -165,20 +165,23 @@ const Experience = () => {
       tags: ["Hackathons", "Innovation", "Team Leadership", "Rapid Development"],
     },
     {
-      type: "achievement",
-      title: "Academic Excellence",
-      company: "IIT Madras & Competitive Exams",
-      date: "2019 - Present",
-      color: "from-primary to-secondary",
-      description: "Outstanding academic achievements and competitive exam performance",
-      highlights: [
-        "JEE Main: 99.38 percentile (Top 0.62% among ~1M candidates)",
-        "MHT-CET: 99.28 percentile (Top 0.72% among ~7L candidates)",
-        "Current CGPA: 8.17/10 in Chemical Engineering at IIT Madras",
-        "Received Reliance Scholarship for academic excellence and dedication",
-      ],
-      tags: ["Academic Excellence", "IIT Madras", "Competitive Exams", "Scholarship"],
-    },
+  type: "achievement",
+  title: "Academic Excellence",
+  company: "IIT Madras & Competitive Exams",
+  date: "2019 - Present",
+  color: "from-primary to-secondary",
+  description: "Outstanding academic achievements and competitive exam performance",
+  highlights: [
+    "JEE Main: 99.38 percentile (Top 0.62% among ~1M candidates)",
+    "MHT-CET: 99.28 percentile (Top 0.72% among ~7L candidates)",
+    "Current CGPA: 8.17/10 in Chemical Engineering at IIT Madras",
+    "Received Reliance Scholarship for academic excellence and dedication",
+    "XII (MH State Board) – Dawale Jr. College: 93.67% (2021)",
+    "X (MH State Board) – Sitabai Sangai High School: 93.20% (2019)"
+  ],
+  tags: ["Academic Excellence", "IIT Madras", "Competitive Exams", "Scholarship", "MH State Board"],
+},
+
   ];
 
   return (
