@@ -8,7 +8,8 @@ const KonamiEasterEgg = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [showDiscoBall, setShowDiscoBall] = useState(false);
   const [ghostCursors, setGhostCursors] = useState<Array<{ x: number; y: number; delay: number }>>([]);
-  
+  const [device, setDevice] = useState<"pc" | "mobile">("pc");
+
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
   const [konamiIndex, setKonamiIndex] = useState(0);
 
@@ -30,6 +31,67 @@ const KonamiEasterEgg = () => {
     }
   };
 
+
+useEffect(() => {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    setDevice(isMobile ? "mobile" : "pc");
+  }, []);
+
+
+  useEffect(() => {
+    const hintsPC = [
+      "💡 Try typing 'matrix' for a cool effect!",
+      "🎶 Type 'dance' for a party mode!",
+      "✨ Type 'disco' and see the magic!",
+      "🎯 Hold 'C' for 3 seconds for confetti!",
+      "🌀 Try typing 'gravity' to defy physics!",
+      "👻 Type 'ghost' to see something spooky!",
+      "🔄 Press Ctrl + Shift + F to flip the world!",
+      "🎮 Try the Konami Code ↑↑↓↓←→←→BA",
+    ];
+
+    const hintsMobile = [
+      "📱 Try typing 'dance' for mobile fun!",
+      "💫 Type 'disco' for a shiny surprise!",
+      "🌈 Type 'matrix' for a digital rain!",
+      "🔥 Long press anywhere for a quick animation!",
+      "👻 Type 'ghost' for some spooky fun!",
+      "🌀 Type 'gravity' for chaos!",
+    ];
+
+    const hints = device === "pc" ? hintsPC : hintsMobile;
+
+    // 🕒 Show hint after 60s
+    const timeTimer = setTimeout(() => {
+      const hint = hints[Math.floor(Math.random() * hints.length)];
+      setSecretMessage(hint);
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 6000);
+    }, 60000);
+
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      if (scrollPercent >= 95) {
+        const hint = hints[Math.floor(Math.random() * hints.length)];
+        setSecretMessage(hint);
+        setShowMessage(true);
+        setTimeout(() => setShowMessage(false), 6000);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+
+      window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timeTimer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [device]);
+  
   useEffect(() => {
     let typedText = '';
     let cHoldTimer: NodeJS.Timeout | null = null;

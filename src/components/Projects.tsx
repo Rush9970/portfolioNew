@@ -5,35 +5,47 @@ import { Badge } from "./ui/badge";
 const projects = [
   {
     title: "AI Document Intelligence",
-    description: "Advanced RAG system with LangChain for intelligent document processing and retrieval",
+    description:
+      "Advanced RAG system with LangChain for intelligent document processing and retrieval",
     metrics: "2x retrieval boost • Processes 2000+ pages",
     tags: ["RAG", "LangChain", "Python", "AI"],
     icon: Brain,
     gradient: "from-primary to-accent",
+    github: "https://github.com/Rush9970/Ragapplication",
+    demo: "*",
   },
   {
     title: "Shop Smarter",
-    description: "Multimodal AI search engine using CLIP for enhanced product recommendations",
+    description:
+      "Multimodal AI search engine using CLIP for enhanced product recommendations",
     metrics: "27% better recommendations • CLIP-powered",
     tags: ["CLIP", "AI", "React", "Python"],
     icon: ShoppingBag,
     gradient: "from-secondary to-primary",
+    github: "https://github.com/Rush9970/shopsmarter",
+    demo: "*",
   },
   {
     title: "Fraud Detection Pipeline",
-    description: "ML pipeline for detecting fraudulent transactions with high accuracy",
+    description:
+      "ML pipeline for detecting fraudulent transactions with high accuracy",
     metrics: "0.9767 AUC-ROC • Handles 0.173% fraud rate",
     tags: ["ML", "Python", "Scikit-learn", "FastAPI"],
     icon: Shield,
     gradient: "from-accent to-secondary",
+    github: "https://github.com/Rush9970/credicardFrod",
+    demo: "*",
   },
   {
     title: "DDoS Attack Classifier",
-    description: "High-performance classifier for network traffic analysis and attack detection",
+    description:
+      "High-performance classifier for network traffic analysis and attack detection",
     metrics: "97.6% accuracy • 20M+ records analyzed",
     tags: ["ML", "TensorFlow", "Python", "Analytics"],
     icon: Activity,
     gradient: "from-primary to-secondary",
+    github: "https://github.com/Rush9970/Cyber-Attack-Pretdictor",
+    demo: "*",
   },
 ];
 
@@ -57,7 +69,9 @@ const Projects = () => {
               className="group glass-panel rounded-2xl p-8 hover:scale-[1.03] transition-all duration-300 animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${project.gradient} mb-4 glow-primary`}>
+              <div
+                className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${project.gradient} mb-4 glow-primary`}
+              >
                 <project.icon className="w-8 h-8 text-white" />
               </div>
 
@@ -81,24 +95,26 @@ const Projects = () => {
               </div>
 
               <div className="flex gap-3">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="border-primary/50 hover:bg-primary/10 opacity-50 cursor-not-allowed"
-                  disabled
-                >
-                  <Github className="w-4 h-4 mr-2" />
-                  View Code
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="border-secondary/50 hover:bg-secondary/10 opacity-50 cursor-not-allowed"
-                  disabled
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Live Demo
-                </Button>
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-primary/50 hover:bg-primary/10"
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    View Code
+                  </Button>
+                </a>
+                <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-secondary/50 hover:bg-secondary/10"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </Button>
+                </a>
               </div>
             </div>
           ))}
