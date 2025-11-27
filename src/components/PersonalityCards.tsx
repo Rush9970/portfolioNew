@@ -26,7 +26,7 @@ const PersonalityCards = () => {
     {
       icon: Rocket,
       title: "Currently Learning",
-      content: "WebGL, Three.js, Advanced animations"
+      content: "Machine Learning and AI integration"
     },
     {
       icon: Book,
